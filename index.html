@@ -227,29 +227,19 @@
     </div>
     <script>
         function calculate() {
-          // Get the password from the input field
           let password = document.getElementById("password").value;
-          // Define the number of characters in the password
           let length = password.length;
-          // Define the number of possible characters (e.g. a-z, A-Z, 0-9)
           let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-          // Define the number of guesses per second
           let guessesPerSecond = 100000000;
-          // Calculate the number of possible combinations
           let combinations = Math.pow(charset.length, length);
-          // Calculate the time in seconds to crack the password
           let time = combinations / guessesPerSecond;
-          // Convert the time to minutes
           let minutes = Math.floor(time / 60);
-          // Convert the time to hours
           let hours = Math.floor(minutes / 60);
-          // Convert the time to days
           let days = Math.floor(hours / 24);
           let months = Math.floor(days / 30);
           let years = Math.floor(months / 12);
           let decades = Math.floor(years / 10);
           let century = Math.floor(years / 100);
-          // Return the time in days, hours, and minutes
           let result = `${century} centuries, ${decades % 10} decades, ${years % 12} years, ${months % 12} months, ${days % 30} days, ${hours % 24} hours, ${minutes % 60} minutes`;
           document.getElementById("result").innerHTML = "It will take approximately " + result + " to crack this password using a brute force method";
         }
